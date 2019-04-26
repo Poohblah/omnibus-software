@@ -15,7 +15,7 @@
 #
 
 name "rust"
-default_version "1.27.0"
+default_version "1.34.1"
 
 license "Apache-2.0"
 license_file "LICENSE-APACHE"
@@ -164,6 +164,10 @@ elsif mac_os_x?
 else
   host_triple = "unknown-linux-gnu"
 
+  version "1.34.1" do
+    source sha256: "8e2eead11bd5bf61409e29018d007c6fc874bcda2ff54db3d04d1691e779c14e",
+           url: url_template % { host_triple: host_triple, arch: arch }
+  end
   version "1.27.0" do
     source sha256: "235ad78e220b10a2d0267aea1e2c0f19ef5eaaff53ad6ff8b12c1d4370dec9a3",
            url: url_template % { host_triple: host_triple, arch: arch }
